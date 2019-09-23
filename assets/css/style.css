@@ -1,0 +1,19 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.flyer{
+  padding: 15px;
+  border: 1px red solid;
+  width: fit-content;
+  z-index: 10;
+  position: absolute;
+}
+
+#techArea{
+  width: 300px;
+  margin: auto;
+  position: relative;
+}

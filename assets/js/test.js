@@ -1,19 +1,12 @@
-function Flyer(id, startX, startY, text) {
-  this.id = id;
+const test = {
+  text: "Animations",
+  xStart: 0,
+  yStart: 0,
+  moving: false,
+  id: "animations",
+  parent: "techArea",
 
-  this.startX = startX;
-  this.x = startX;
-
-  this.startY = startY;
-  this.y = startY;
-
-  this.text = text;
-
-  this.parent = "techArea";
-
-  this.moving = false;
-
-  this.makeDiv = function() {
+  makeDiv: function() {
     const place = document.getElementById(this.parent);
 
     const newFlyer = document.createElement("div");
@@ -21,19 +14,21 @@ function Flyer(id, startX, startY, text) {
     newFlyer.id = this.id;
     newFlyer.textContent = this.text;
 
-    newFlyer.style.left = `${this.startX}px`;
-    newFlyer.style.top = `${this.startY}px`;
+    // newFlyer.style.position = "absolute";
 
-    newFlyer.addEventListener("mouseover", (e) => {
+    newFlyer.style.left = this.xStart;
+    newFlyer.style.top = this.yStart;
+
+    newFlyer.addEventListener("mouseover", (e) => { 
       if (!this.moving) {
-        this.moveDiv(e)
+        this.moveDiv(e) 
       }
     })
 
     place.append(newFlyer);
-  }
+  },
 
-  this.moveDiv = function(e) {
+  moveDiv: function(e) {
     this.moving = true;
     let xMove, yMove;
     const techPlace = { parentX: e.target.parentElement.getBoundingClientRect().x, parentY: e.target.getBoundingClientRect().y };
@@ -80,28 +75,28 @@ function Flyer(id, startX, startY, text) {
       yMove = 50;
     }
 
+
+
     console.log(xMove, yMove)
+
+
+
 
     const elem = document.getElementById(this.id);
     const ani = elem.animate({
-      left: [`${this.x}px`, `${this.x + xMove}px`],
-      top: [`${this.y}px`, `${this.y + yMove}px`]
+      left: [`${this.xStart}px`, `${this.xStart + xMove}px`],
+      top: [`${this.yStart}px`, `${this.yStart + yMove}px`]
     }, {
       duration: 100,
       fill: "forwards"
     })
 
     ani.onfinish = () => {
-      this.x = this.x + xMove;
-      this.y = this.y + yMove;
+      this.xStart = this.xStart + xMove;
+      this.yStart = this.yStart + yMove;
       this.moving = false;
     }
   }
 }
 
-const test = new Flyer("test", 0, 0, "test div");
-const test2 = new Flyer("test2", 50, 50, "test 2 div")
-
-const divs = [test, test2]
-
-divs.forEach(div => div.makeDiv())
+test.makeDiv();
