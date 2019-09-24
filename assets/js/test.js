@@ -85,7 +85,7 @@ const test = {
     const elem = document.getElementById(this.id);
     const ani = elem.animate({
       left: [`${this.xStart}px`, `${this.xStart + xMove}px`],
-      top: [`${this.yStart}px`, `${this.yStart + yMove}px`]
+      top: [`${this.yStart}px`, `${this.yStart + yMove}px`],
     }, {
       duration: 100,
       fill: "forwards"

@@ -1,13 +1,12 @@
-function Flyer(id, startX, startY, text) {
+function Flyer(id, img, startX, startY) {
   this.id = id;
+  this.backImg = img;
 
   this.startX = startX;
   this.x = startX;
 
   this.startY = startY;
   this.y = startY;
-
-  this.text = text;
 
   this.parent = "techArea";
 
@@ -19,12 +18,21 @@ function Flyer(id, startX, startY, text) {
     const newFlyer = document.createElement("div");
     newFlyer.classList = "flyer";
     newFlyer.id = this.id;
-    newFlyer.textContent = this.text;
 
     newFlyer.style.left = `${this.startX}px`;
     newFlyer.style.top = `${this.startY}px`;
 
+    newFlyer.style.background = `url(${this.backImg})`;
+    newFlyer.style.backgroundSize = "contain";
+    newFlyer.style.backgroundColor = "white";
+
     newFlyer.addEventListener("mouseover", (e) => {
+      if (!this.moving) {
+        this.moveDiv(e)
+      }
+    })
+
+    newFlyer.addEventListener("touchstart", (e) => {
       if (!this.moving) {
         this.moveDiv(e)
       }
@@ -36,72 +44,99 @@ function Flyer(id, startX, startY, text) {
   this.moveDiv = function(e) {
     this.moving = true;
     let xMove, yMove;
-    const techPlace = { parentX: e.target.parentElement.getBoundingClientRect().x, parentY: e.target.getBoundingClientRect().y };
-    console.log(techPlace);
-    console.log(e);
-
     const stats = e.target.getBoundingClientRect()
-
-    console.log(stats)
-    console.log({ x: e.pageX, y: e.pageY })
-    console.log({ top: stats.top, bottom: stats.bottom, right: stats.right, left: stats.left })
-
-    const zeroStart = { x: techPlace.parentX - stats.left, y: techPlace.parentY - stats.top }
-    console.log("====")
-    console.log(zeroStart);
 
     const leftDiff = Math.abs(stats.left - e.pageX);
     const rightDiff = Math.abs(stats.right - e.pageX);
-    console.log(leftDiff, rightDiff);
 
     if (leftDiff > rightDiff) {
-      console.log("right side")
-      xMove = -50
+      xMove = -100
     } else if (leftDiff === rightDiff) {
-      console.log("middle")
       xMove = 0
     } else {
-      console.log("left side")
-      xMove = 50
+      xMove = 100
     }
 
     const topDiff = Math.abs(stats.top - e.pageY)
     const bottomDiff = Math.abs(stats.bottom - e.pageY)
-    console.log(topDiff, bottomDiff);
 
     if (topDiff > bottomDiff) {
-      console.log("bottom side");
-      yMove = -50
+      yMove = -100
     } else if (topDiff === bottomDiff) {
-      console.log("middle");
       yMove = 0
     } else {
-      console.log("top side")
-      yMove = 50;
+      yMove = 100;
     }
 
-    console.log(xMove, yMove)
+    // console.log(xMove, yMove)
 
     const elem = document.getElementById(this.id);
     const ani = elem.animate({
       left: [`${this.x}px`, `${this.x + xMove}px`],
-      top: [`${this.y}px`, `${this.y + yMove}px`]
+      top: [`${this.y}px`, `${this.y + yMove}px`],
+      transform: ["scale(1)", "scale(1.50)", "scale(1)"],
+      boxShadow: ["0 0 0 black", "10px 10px 10px black", "0 0 0 black"]
     }, {
-      duration: 100,
-      fill: "forwards"
+      duration: 400,
+      fill: "forwards",
+      easing: "ease-in-out"
     })
 
     ani.onfinish = () => {
-      this.x = this.x + xMove;
-      this.y = this.y + yMove;
+      this.x += xMove;
+      this.y += yMove;
       this.moving = false;
     }
   }
+
+  this.moveBack = function() {
+    console.log(this.x, this.y, this.startX, this.startY)
+    if (this.x !== this.startX || this.y !== this.startY) {
+      this.moving = true;
+      const mover = document.getElementById(this.id);
+      const moverBack = mover.animate({
+        left: [`${this.x}px`, `${this.startX}px`],
+        top: [`${this.y}px`, `${this.startY}px`],
+        transform: ["scale(1)", "scale(1.75)", "scale(1)"]
+      }, {
+        duration: 1000,
+        fill: "forwards",
+        easing: "ease-in-out"
+      })
+
+      moverBack.onfinish = () => {
+        this.x = this.startX;
+        this.y = this.startY;
+        this.moving = false;
+      }
+    }
+
+  }
 }
 
-const test = new Flyer("test", 0, 0, "test div");
-const test2 = new Flyer("test2", 50, 50, "test 2 div")
+const htmlFlyer = new Flyer("htmlFlyer", "/assets/images/HTML.jpg", 0, 0);
+const cssFlyer = new Flyer("cssFlyer", "/assets/images/CSS.png", 105, 0);
+const javascriptFlyer = new Flyer("jsflyer", "/assets/images/Javascript.png", 0, 105);
+const reactFlyer = new Flyer("reactFlyer", "/assets/images/React.png", 105, 105);
+const nodeFlyer = new Flyer("nodeFlyer", "/assets/images/Node.png", 0, 210);
+const expressFlyer = new Flyer("expressFlyer", "/assets/images/Express.png", 105, 210);
+const MongoDBFlyer = new Flyer("mongoDBFlyer", "/assets/images/MongoDB.png", 0, 315);
+const MySqlFlyer = new Flyer("MySQLFlyer", "/assets/images/MySql.png", 105, 315);
 
-const divs = [test, test2]
+const divs = [
+  htmlFlyer, 
+  cssFlyer, 
+  javascriptFlyer, 
+  reactFlyer,
+  nodeFlyer, 
+  expressFlyer,
+  MongoDBFlyer,
+  MySqlFlyer
+]
+
+const moveBackBtn = document.getElementById("moveBack");
+moveBackBtn.addEventListener("click", function() {
+  divs.forEach(div => div.moveBack())
+})
 
 divs.forEach(div => div.makeDiv())
