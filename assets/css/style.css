@@ -31,9 +31,11 @@ section {
 }
 
 .sub-title {
-  padding: 3px;
+  padding: 10px;
   background-color: white;
   color: black;
+  border-top: 3px rgb(179, 0, 0) solid;
+  border-bottom: 3px rgb(179, 0, 0) solid;
 }
 
 /* Scroller */
@@ -47,7 +49,7 @@ section {
   border-radius: 50%;
   /* background: url("../images/backgrounds/swhirl.png"); */
   /* background: url("../images/backgrounds/earth.png"); */
-  background: url("../images/backgrounds/scroller.png");
+  /* background: url("../images/backgrounds/scroller.png"); */
   background-color: white;
   background-size: cover;
 }
@@ -73,6 +75,7 @@ section {
   box-shadow: 0 0 0 0 white;
   background-color: transparent;
   color: rgb(179, 0, 0);
+  border: .25px rgb(124, 124, 124) solid;
 }
 
 .about:hover {
@@ -84,12 +87,16 @@ section {
 
 /* Tech Section */
 
-#technology {
+/* #technology {
   background: url("../images/backgrounds/shuttle2.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
   background-color: black;
+} */
+
+#technology{
+  background: linear-gradient(90deg, #222, black, #222)
 }
 
 .flyer {
@@ -105,8 +112,33 @@ section {
 #techArea {
   width: 205px;
   min-height: 415px;
-  margin: 2em auto;
+  margin: 4em auto;
   position: relative;
+  display: grid;
+  place-items: center center;
+}
+
+.move-back {
+  border: 1px black solid;
+  background-color: #555;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.move-back:hover {
+  background-color: white;
+  color: black;
+  transition: all, .25s;
+}
+
+.move-back:active {
+  transform: scale(.9);
+  transform: all, .25s;
+}
+
+.move-back:focus {
+  outline: none;
 }
 
 /* Project Section*/
@@ -126,29 +158,47 @@ section {
 .project {
   position: relative;
   left: -100%;
-  padding: 20px;
+  padding: 50px 20px;
   width: 100%;
-  background-color: rgb(4, 63, 122);
+  background-color: rgba(68, 68, 68, 0.89);
+  color: white;
   margin-bottom: 100px;
+  
+}
+
+.left-trap{
+  -webkit-clip-path: polygon(0 0, 100% 6%, 100% 89%, 0% 100%);
+  clip-path: polygon(0 0, 100% 6%, 100% 89%, 0% 100%);
+}
+
+.right-trap{
+  -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 89%);
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 89%);
 }
 
 .project-img {
   max-width: 500px;
-  width: 100%;
+  width: 55%;
   height: auto;
   display: block;
   margin: 0 auto;
   border-radius: 15px;
-  border: .75px black solid;
+  border: 1px white solid;
 }
 
 .project-wrapper {
   width: 70%;
   min-width: 310px;
   margin: 0 auto;
-  background-color: white;
   padding: 5px;
   border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right-project {
+  width: 40%;
 }
 
 .still {
@@ -164,6 +214,10 @@ section {
 .link-area {
   width: fit-content;
   margin: 0 auto;
+}
+
+.link-area a {
+  color: white;
 }
 
 /* ScrollBar */
@@ -186,4 +240,14 @@ section {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
   background: #333;
+}
+
+@media (max-width: 1000px) {
+  .project-wrapper{
+    flex-direction: column;
+  }
+
+  .project-img, .right-project{
+    width: 100%;
+  }
 }
