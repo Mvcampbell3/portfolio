@@ -46,8 +46,8 @@ function Flyer(id, img, startX, startY) {
     let xMove, yMove;
     const stats = e.target.getBoundingClientRect()
 
-    const leftDiff = Math.abs(stats.left - e.pageX);
-    const rightDiff = Math.abs(stats.right - e.pageX);
+    const leftDiff = Math.abs(stats.left - e.clientX);
+    const rightDiff = Math.abs(stats.right - e.clientX);
 
     if (leftDiff > rightDiff) {
       xMove = -100
@@ -57,8 +57,8 @@ function Flyer(id, img, startX, startY) {
       xMove = 100
     }
 
-    const topDiff = Math.abs(stats.top - e.pageY)
-    const bottomDiff = Math.abs(stats.bottom - e.pageY)
+    const topDiff = Math.abs(stats.top - e.clientY)
+    const bottomDiff = Math.abs(stats.bottom - e.clientY)
 
     if (topDiff > bottomDiff) {
       yMove = -100
@@ -140,3 +140,30 @@ moveBackBtn.addEventListener("click", function() {
 })
 
 divs.forEach(div => div.makeDiv())
+
+// document.addEventListener("scroll", function() {
+//   console.log("scroll");
+//   scroller();
+// })
+
+// let rot = 0;
+// let rotating = false;
+
+// function scroller() {
+//   const scrollWheel = document.getElementById("scroller");
+//   if (!rotating) {
+//     rotating = true;
+//     const scrollAni = scrollWheel.animate({
+//       transform: [`rotateZ(${rot}deg)`, `rotateZ(${rot + 5}deg)`]
+//     }, {
+//       duration: 5,
+//       fill: "forwards"
+//     })
+
+//     scrollAni.onfinish = function() {
+//       rot += 2;
+//       rotating = false
+//     }
+//   }
+  
+// }
