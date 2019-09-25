@@ -14,7 +14,7 @@ function Project(id) {
       if (this.getTop() <= 450 && !this.shown) {
         // Move project in
         this.moveRightIn()
-      } else if (this.getTop() > 350 && this.shown) {
+      } else if (this.getTop() > 450 && this.shown) {
         // Move project out
         this.moveRightOut()
       }

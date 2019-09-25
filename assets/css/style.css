@@ -1,38 +1,44 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-body, html{
+body, html {
   height: 100%;
   background-color: #555;
 }
 
-.container{
+.container {
   width: 100%;
   height: 100%;
 }
 
-section{
+section {
   min-height: 100vh;
 }
 
 /* Reusables */
 
-.gridCenter{
+.gridCenter {
   display: grid;
   place-items: center;
 }
 
-.text-center{
+.text-center {
   text-align: center;
+}
+
+.sub-title {
+  padding: 3px;
+  background-color: white;
+  color: black;
 }
 
 /* Scroller */
 
-.scroller{
+.scroller {
   position: fixed;
   bottom: 50px;
   left: 50px;
@@ -48,27 +54,45 @@ section{
 
 /* About Section */
 
-#landing{
-  background: url("../images//backgrounds/shuttle2.jpg")
+#landing {
+  background: url("../images//backgrounds/space.jpg");
+  background-size: cover;
+  background-position: center center;
 }
 
-.about{
+.about {
   width: 50%;
   min-width: 350px;
-  padding: 10px;
-  background-color: rgba(51, 51, 51, 0.842);
-  color: white;
+  padding: 20px;
   position: relative;
   top: -10vh;
   border-radius: 15px;
+  transition: all, .25s;
+  letter-spacing: 1.5px;
+  cursor: inherit;
+  box-shadow: 0 0 0 0 white;
+  background-color: transparent;
+  color: rgb(179, 0, 0);
+}
+
+.about:hover {
+  background-color: rgba(20, 42, 90, 0.932);
+  color: white;
+  box-shadow: 0 0 110px 100px white;
+  transition: all, .25s;
 }
 
 /* Tech Section */
-#technology{
-  background: black;
+
+#technology {
+  background: url("../images/backgrounds/shuttle2.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: black;
 }
 
-.flyer{
+.flyer {
   height: 100px;
   width: 100px;
   z-index: 10;
@@ -78,7 +102,7 @@ section{
   place-items: center center;
 }
 
-#techArea{
+#techArea {
   width: 205px;
   min-height: 415px;
   margin: auto;
@@ -87,8 +111,29 @@ section{
 
 /* Project Section*/
 
-.project-img{
-  max-width: 400px;
+#portfolio {
+  background: url("../images/backgrounds/hubble.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-bottom: 100px;
+}
+
+#projectArea {
+  padding-top: 50px;
+}
+
+.project {
+  position: relative;
+  left: -100%;
+  padding: 20px;
+  width: 100%;
+  background-color: rgb(4, 63, 122);
+  margin-bottom: 100px;
+}
+
+.project-img {
+  max-width: 500px;
   width: 100%;
   height: auto;
   display: block;
@@ -97,32 +142,48 @@ section{
   border: .75px black solid;
 }
 
-.project{
-  position: relative;
-  left: -100%;
-  padding: 20px;
-  width: 100%;
-  background-color: rgb(4, 63, 122);
-  margin-bottom: 100px;
-  box-shadow: 0px 10px 10px #333;
-}
-
-.project-wrapper{
+.project-wrapper {
   width: 70%;
-  min-width: 350px;
+  min-width: 310px;
   margin: 0 auto;
   background-color: white;
   padding: 5px;
   border-radius: 15px;
 }
 
-.still{
+.still {
   display: none;
 }
 
-.content{
+.content {
   margin-top: 1em;
   padding: 5px;
   padding-top: 0;
 }
 
+.link-area {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* ScrollBar */
+
+::-webkit-scrollbar {
+  background: #111;
+  width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: darkred;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  background: #333;
+}
