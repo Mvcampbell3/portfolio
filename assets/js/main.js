@@ -134,7 +134,7 @@ const divs = [
   MySqlFlyer
 ]
 
-const moveBackBtn = document.getElementById("moveBack");
+const moveBackBtn = document.getElementById("move-back");
 moveBackBtn.addEventListener("click", function() {
   divs.forEach(div => div.moveBack())
 })

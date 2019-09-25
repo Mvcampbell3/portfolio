@@ -105,7 +105,7 @@ section {
 #techArea {
   width: 205px;
   min-height: 415px;
-  margin: auto;
+  margin: 2em auto;
   position: relative;
 }
 
