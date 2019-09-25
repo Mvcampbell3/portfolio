@@ -88,3 +88,12 @@ section{
   width: 400px;
   height: auto;
 }
+
+.project{
+  position: relative;
+  left: -100%;
+}
+
+.move{
+  display: none;
+}
