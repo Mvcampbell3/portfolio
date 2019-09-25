@@ -7,7 +7,7 @@
 
 body, html{
   height: 100%;
-  /* background-color: #455; */
+  background-color: #555;
 }
 
 .container{
@@ -64,6 +64,9 @@ section{
 }
 
 /* Tech Section */
+#technology{
+  background: black;
+}
 
 .flyer{
   height: 100px;
@@ -85,15 +88,41 @@ section{
 /* Project Section*/
 
 .project-img{
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px;
+  border: .75px black solid;
 }
 
 .project{
   position: relative;
   left: -100%;
+  padding: 20px;
+  width: 100%;
+  background-color: rgb(4, 63, 122);
+  margin-bottom: 100px;
+  box-shadow: 0px 10px 10px #333;
 }
 
-.move{
+.project-wrapper{
+  width: 70%;
+  min-width: 350px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.still{
   display: none;
 }
+
+.content{
+  margin-top: 1em;
+  padding: 5px;
+  padding-top: 0;
+}
+

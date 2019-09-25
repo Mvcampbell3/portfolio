@@ -2,6 +2,7 @@ function Project(id) {
   this.id = id;
   this.shown = false;
   this.moving = false;
+  this.speed = 500;
 
   this.getTop = function() {
     const divPro = document.getElementById(this.id);
@@ -12,15 +13,10 @@ function Project(id) {
     if (!this.moving) {
       if (this.getTop() <= 450 && !this.shown) {
         // Move project in
-        console.log("move project in")
         this.moveRightIn()
-      } else if (this.getTop() > 450 && this.shown) {
+      } else if (this.getTop() > 350 && this.shown) {
         // Move project out
-        console.log("move project out")
         this.moveRightOut()
-      } else {
-        // Do nothing
-        console.log("do nothing")
       }
     } else {
       console.log("animation running")
@@ -34,7 +30,7 @@ function Project(id) {
     const divAni = divMove.animate({
       left: ["-100%", "0"]
     }, {
-      duration: 700,
+      duration: this.speed,
       fill: "forwards"
     })
 
@@ -50,7 +46,7 @@ function Project(id) {
     const divAni = divMove.animate({
       left: ["0", "-100%"]
     }, {
-      duration: 700,
+      duration: this.speed,
       fill: "forwards"
     })
 
