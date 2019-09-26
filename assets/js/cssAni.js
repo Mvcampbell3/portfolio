@@ -32,7 +32,7 @@ function Project(id) {
         // Move project out
       }
     } else {
-      console.log("animation running")
+      // console.log("animation running")
     }
     
   }
