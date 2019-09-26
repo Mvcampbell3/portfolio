@@ -1,10 +1,18 @@
 .animateMove{
   animation-name: moveRight;
   animation-duration: 1.5s;
-  animation-fill-mode: forwards
+  animation-fill-mode: forwards;
+  -webkit-animation-name: moveRight;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-fill-mode: forwards;
 }
 
 @keyframes moveRight{
+  0% {transform: translateX(0)}
+  100% {transform: translateX(1000px)}
+}
+
+@-webkit-keyframes moveRight{
   0% {transform: translateX(0)}
   100% {transform: translateX(1000px)}
 }
