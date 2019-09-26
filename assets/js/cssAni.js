@@ -27,7 +27,7 @@ function Project(id) {
         divMove.classList.add("animateMove");
         setTimeout(() => {
           this.moving = false;
-        }, 750)
+        }, 1500)
       } else if (this.getTop() > 450 && this.shown) {
         // Move project out
       }

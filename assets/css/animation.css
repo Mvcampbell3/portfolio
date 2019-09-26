@@ -1,6 +1,6 @@
 .animateMove{
   animation-name: moveRight;
-  animation-duration: .5s;
+  animation-duration: 1.5s;
   animation-fill-mode: forwards
 }
 
