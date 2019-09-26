@@ -1,9 +1,9 @@
 .animateMove{
   animation-name: moveRight;
-  animation-duration: 6.5s;
+  animation-duration: 1.5s;
   animation-fill-mode: forwards;
   -webkit-animation-name: moveRight;
-  -webkit-animation-duration: 6.5s;
+  -webkit-animation-duration: 1.5s;
   -webkit-animation-fill-mode: forwards;
 }
 
