@@ -157,7 +157,7 @@ section {
 
 .project {
   position: relative;
-  /* left: -100%; */
+  left: -1000px;
   padding: 50px 20px;
   width: 100%;
   background-color: rgba(68, 68, 68, 0.89);

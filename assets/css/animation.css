@@ -1,0 +1,10 @@
+.animateMove{
+  animation-name: moveRight;
+  animation-duration: .5s;
+  animation-fill-mode: forwards
+}
+
+@keyframes moveRight{
+  0% {transform: translateX(0)}
+  100% {transform: translateX(1000px)}
+}
