@@ -57,7 +57,7 @@ section {
 /* About Section */
 
 #landing {
-  background: url("../images//backgrounds/space.jpg");
+  background: url("../images//backgrounds/space2.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -96,7 +96,7 @@ section {
 } */
 
 #technology{
-  background: linear-gradient(90deg, #222, black, #222)
+  background: linear-gradient(177deg, black, #111, #222, #9AC1E0)
 }
 
 .flyer {
@@ -144,7 +144,7 @@ section {
 /* Project Section*/
 
 #portfolio {
-  background: url("../images/backgrounds/hubble.jpg");
+  background: url("../images/backgrounds/sky2.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

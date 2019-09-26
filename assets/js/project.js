@@ -3,20 +3,44 @@ function Project(id) {
   this.shown = false;
   this.moving = false;
   this.speed = 500;
+  this.mobile = false;
+  this.mobileSet = false;
+
+  this.checkWidth = function() {
+    if (window.innerWidth < 450) {
+      // This will run first load and determine if the window's width
+      // It appears there is something going on with the animation itself
+    }
+  }
 
   this.getTop = function() {
     const divPro = document.getElementById(this.id);
     return divPro.getBoundingClientRect().top;
   }
 
+  // this.evalTop = function() {
+  //   if (!this.moving) {
+  //     if (this.getTop() <= 450 && !this.shown) {
+  //       // Move project in
+  //       this.moveRightIn()
+  //     } else if (this.getTop() > 450 && this.shown) {
+  //       // Move project out
+  //       this.moveRightOut()
+  //     }
+  //   } else {
+  //     console.log("animation running")
+  //   }
+    
+  // }
+
   this.evalTop = function() {
     if (!this.moving) {
       if (this.getTop() <= 450 && !this.shown) {
         // Move project in
-        this.moveRightIn()
+        this.moveRightInMobile()
       } else if (this.getTop() > 450 && this.shown) {
         // Move project out
-        this.moveRightOut()
+        this.moveRightOutMobile()
       }
     } else {
       console.log("animation running")
@@ -40,11 +64,43 @@ function Project(id) {
     }
   }
 
+  this.moveRightInMobile = function() {
+    this.moving = true;
+    const divMove = document.getElementById(this.id);
+    const divAni = divMove.animate({
+      transform: ["translateX(0)", "translateX(100%)"],
+    }, {
+      duration: this.speed,
+      fill: "forwards"
+    })
+
+    divAni.onfinish = () => {
+      this.moving = false;
+      this.shown = true
+    }
+  }
+
   this.moveRightOut = function() {
     this.moving = true;
     const divMove = document.getElementById(this.id);
     const divAni = divMove.animate({
       left: ["0", "-100%"]
+    }, {
+      duration: this.speed,
+      fill: "forwards"
+    })
+
+    divAni.onfinish = () => {
+      this.moving = false;
+      this.shown = false
+    }
+  }
+
+  this.moveRightOutMobile = function() {
+    this.moving = true;
+    const divMove = document.getElementById(this.id);
+    const divAni = divMove.animate({
+      transform: ["translateX(100%)", "translateX(0)"]
     }, {
       duration: this.speed,
       fill: "forwards"
