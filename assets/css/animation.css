@@ -1,18 +1,37 @@
 .animateMove{
-  animation-name: moveRight;
+  animation-name: bringIn;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
-  -webkit-animation-name: moveRight;
+  -webkit-animation-name: bringIn;
   -webkit-animation-duration: 1.5s;
   -webkit-animation-fill-mode: forwards;
 }
 
-@keyframes moveRight{
+@keyframes bringIn{
   0% {opacity: 0}
   100% {opacity: 1}
 }
 
-@-webkit-keyframes moveRight{
+@-webkit-keyframes bringIn{
   0% {-webkit-opacity: 0}
   100% {-webkit-opacity: 1}
+}
+
+.animateMoveOut{
+  animation-name: bringOut;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: bringOut;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes bringOut{
+  0% {opacity: 1}
+  100% {opacity: 0}
+}
+
+@-webkit-keyframes bringOut{
+  0% {-webkit-opacity: 1}
+  100% {-webkit-opacity: 0}
 }

@@ -157,13 +157,12 @@ section {
 
 .project {
   position: relative;
-  /* left: -1000px; */
   padding: 50px 20px;
   width: 100%;
   background-color: rgba(68, 68, 68, 0.89);
   color: white;
   margin-bottom: 100px;
-  opacity: 0;
+  left: -100%;
 }
 
 .left-trap{
@@ -249,5 +248,12 @@ section {
 
   .project-img, .right-project{
     width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .project{
+    left: 0;
+    opacity: 0;
   }
 }
