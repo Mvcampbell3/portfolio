@@ -52,7 +52,7 @@ function Project(id) {
     this.moving = true;
     const divMove = document.getElementById(this.id);
     const divAni = divMove.animate({
-      left: ["-100%", "0"]
+      left: ["-1000px", "0"]
     }, {
       duration: this.speed,
       fill: "forwards"
@@ -68,7 +68,7 @@ function Project(id) {
     this.moving = true;
     const divMove = document.getElementById(this.id);
     const divAni = divMove.animate({
-      transform: ["translateX(0)", "translateX(100%)"],
+      transform: ["translateX(0)", "translateX(1000px)"],
     }, {
       duration: this.speed,
       fill: "forwards"
@@ -84,7 +84,7 @@ function Project(id) {
     this.moving = true;
     const divMove = document.getElementById(this.id);
     const divAni = divMove.animate({
-      left: ["0", "-100%"]
+      left: ["0", "-1000px"]
     }, {
       duration: this.speed,
       fill: "forwards"
@@ -100,7 +100,7 @@ function Project(id) {
     this.moving = true;
     const divMove = document.getElementById(this.id);
     const divAni = divMove.animate({
-      transform: ["translateX(100%)", "translateX(0)"]
+      transform: ["translateX(1000px)", "translateX(0)"]
     }, {
       duration: this.speed,
       fill: "forwards"
