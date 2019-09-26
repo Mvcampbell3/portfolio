@@ -67,6 +67,7 @@ function Project(id) {
   this.moveRightInMobile = function() {
     this.moving = true;
     const divMove = document.getElementById(this.id);
+    console.log(divMove.style.left);
     const divAni = divMove.animate({
       transform: ["translateX(0)", "translateX(1000px)"],
     }, {
@@ -77,6 +78,7 @@ function Project(id) {
     divAni.onfinish = () => {
       this.moving = false;
       this.shown = true
+      console.log(divMove.style.left)
     }
   }
 
