@@ -2,12 +2,11 @@ function Project(id) {
   this.id = id;
   this.shown = false;
   this.moving = false;
-  this.speed = 500;
+  this.speed = 550;
   this.mobile = false;
   this.mobileSet = false;
 
   this.checkWidth = function() {
-    console.log("ran")
     if (window.innerWidth < 450) {
       this.mobile = true;
       this.mobileSet = true;
@@ -23,63 +22,29 @@ function Project(id) {
   }
 
   this.evalTop = function() {
-    console.log(this.mobile, this.mobileSet)
-    if (this.mobile && this.mobileSet) {
-      // This is a smaller device
-      if (!this.moving) {
-        if (this.getTop() <= 450 && !this.shown) {
-          // Move project in
-          this.moving = true;
-          const divMove = document.getElementById(this.id);
-          divMove.classList.remove(this.mobile ? "animateMoveOut": "slideLeft");
-          divMove.classList.add(this.mobile ? "animateMove" : "slideRight");
-          setTimeout(() => {
-            this.moving = false;
-            this.shown = true;
-          }, 1500)
-        } else if (this.getTop() > 450 && this.shown) {
-          // Move project out
-          this.moving = true;
-          const divMove = document.getElementById(this.id);
-          divMove.classList.remove(this.mobile ? "animateMove" : "slideRight");
-          divMove.classList.add(this.mobile ? "animateMoveOut" : "slideLeft");
-          setTimeout(() => {
-            this.moving = false;
-            this.shown = false;
-          })
-        }
-      } else {
-        // console.log("animation running")
-      }
-    } else {
-      if (!this.moving) {
-        if (this.getTop() <= 450 && !this.shown) {
-          // Move project in
-          this.moving = true;
-          const divMove = document.getElementById(this.id);
-          divMove.classList.remove("slideLeft");
-          divMove.classList.add("slideRight");
-          setTimeout(() => {
-            this.moving = false;
-            this.shown = true;
-          }, 1500)
-        } else if (this.getTop() > 450 && this.shown) {
-          // Move project out
-          this.moving = true;
-          const divMove = document.getElementById(this.id);
-          divMove.classList.remove("slideRight");
-          divMove.classList.add("slideLeft");
-          setTimeout(() => {
-            this.moving = false;
-            this.shown = false;
-          })
-        }
-      } else {
-        // console.log("animation running")
+    if (!this.moving) {
+      if (this.getTop() <= 450 && !this.shown) {
+        // Move project in
+        this.moving = true;
+        const divMove = document.getElementById(this.id);
+        divMove.classList.remove(this.mobile ? "animateMoveOut" : "slideLeft");
+        divMove.classList.add(this.mobile ? "animateMove" : "slideRight");
+        setTimeout(() => {
+          this.moving = false;
+          this.shown = true;
+        }, this.speed)
+      } else if (this.getTop() > 450 && this.shown) {
+        // Move project out
+        this.moving = true;
+        const divMove = document.getElementById(this.id);
+        divMove.classList.remove(this.mobile ? "animateMove" : "slideRight");
+        divMove.classList.add(this.mobile ? "animateMoveOut" : "slideLeft");
+        setTimeout(() => {
+          this.moving = false;
+          this.shown = false;
+        }, this.speed)
       }
     }
-
-
   }
 }
 
