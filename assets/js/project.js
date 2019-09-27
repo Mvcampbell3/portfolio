@@ -109,13 +109,14 @@ function Project(id) {
 }
 
 const rover_reddit = new Project("rover-reddit");
+const better_todo = new Project("better-to-do");
 const yahtzee = new Project("yahtzee");
 const trivia_madness = new Project("trivia-madness");
 const skyrim = new Project("skyrim-clickgame");
 const stardew = new Project("stardew");
 const space_scrape = new Project("space-scrape");
 
-const projects = [rover_reddit, yahtzee, trivia_madness, skyrim, stardew, space_scrape]
+const projects = [rover_reddit, better_todo, yahtzee, trivia_madness, skyrim, stardew, space_scrape]
 
 document.addEventListener("scroll", function() {
   projects.forEach(project => project.evalTop())
