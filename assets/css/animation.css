@@ -38,11 +38,13 @@
 
 .slideRight{
   animation-name: slideIn;
-  animation-duration: 1.5s;
+  animation-duration: .5s;
   animation-fill-mode: forwards;
+  animation-timing-function: linear;
   -webkit-animation-name: slideIn;
   -webkit-animation-fill-mode: forwards;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: .5s;
+  -webkit-animation-timing-function: linear;
 }
 
 @keyframes slideIn{
@@ -57,11 +59,13 @@
 
 .slideLeft{
   animation-name: slideOut;
-  animation-duration: 1.5s;
+  animation-duration: .5s;
   animation-fill-mode: forwards;
+  animation-timing-function: linear;
   -webkit-animation-name: slideOut;
   -webkit-animation-fill-mode: forwards;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: .5s;
+  -webkit-animation-timing-function: linear;
 }
 
 @keyframes slideOut{

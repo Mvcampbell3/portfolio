@@ -9,7 +9,6 @@ function Project(id) {
   this.checkWidth = function() {
     console.log("ran")
     if (window.innerWidth < 450) {
-      // This will run first load and determine if the window's width
       this.mobile = true;
       this.mobileSet = true;
     } else {
@@ -32,8 +31,8 @@ function Project(id) {
           // Move project in
           this.moving = true;
           const divMove = document.getElementById(this.id);
-          divMove.classList.remove("animateMoveOut");
-          divMove.classList.add("animateMove");
+          divMove.classList.remove(this.mobile ? "animateMoveOut": "slideLeft");
+          divMove.classList.add(this.mobile ? "animateMove" : "slideRight");
           setTimeout(() => {
             this.moving = false;
             this.shown = true;
@@ -42,8 +41,8 @@ function Project(id) {
           // Move project out
           this.moving = true;
           const divMove = document.getElementById(this.id);
-          divMove.classList.remove("animateMove");
-          divMove.classList.add("animateMoveOut");
+          divMove.classList.remove(this.mobile ? "animateMove" : "slideRight");
+          divMove.classList.add(this.mobile ? "animateMoveOut" : "slideLeft");
           setTimeout(() => {
             this.moving = false;
             this.shown = false;
@@ -53,14 +52,27 @@ function Project(id) {
         // console.log("animation running")
       }
     } else {
-      // this is a desktop
       if (!this.moving) {
         if (this.getTop() <= 450 && !this.shown) {
           // Move project in
-          this.moveRightIn()
+          this.moving = true;
+          const divMove = document.getElementById(this.id);
+          divMove.classList.remove("slideLeft");
+          divMove.classList.add("slideRight");
+          setTimeout(() => {
+            this.moving = false;
+            this.shown = true;
+          }, 1500)
         } else if (this.getTop() > 450 && this.shown) {
           // Move project out
-          this.moveRightOut()
+          this.moving = true;
+          const divMove = document.getElementById(this.id);
+          divMove.classList.remove("slideRight");
+          divMove.classList.add("slideLeft");
+          setTimeout(() => {
+            this.moving = false;
+            this.shown = false;
+          })
         }
       } else {
         // console.log("animation running")
@@ -69,43 +81,6 @@ function Project(id) {
 
 
   }
-
-  this.moveRightIn = function() {
-    this.moving = true;
-    const divMove = document.getElementById(this.id);
-    const divAni = divMove.animate({
-      left: ["-100%", "0"]
-    }, {
-      duration: this.speed,
-      fill: "forwards"
-    })
-
-    divAni.onfinish = () => {
-      this.moving = false;
-      this.shown = true
-    }
-  }
-
-  this.moveRightOut = function() {
-    this.moving = true;
-    const divMove = document.getElementById(this.id);
-    const divAni = divMove.animate({
-      left: ["0", "-100%"]
-    }, {
-      duration: this.speed,
-      fill: "forwards"
-    })
-
-    divAni.onfinish = () => {
-      this.moving = false;
-      this.shown = false
-    }
-  }
-
-
-
-
-
 }
 
 const rover_reddit = new Project("rover-reddit");

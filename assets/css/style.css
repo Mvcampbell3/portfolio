@@ -166,8 +166,8 @@ section {
 }
 
 .left-trap{
-  -webkit-clip-path: polygon(0 0, 100% 6%, 100% 89%, 0% 100%);
-  clip-path: polygon(0 0, 100% 6%, 100% 89%, 0% 100%);
+  -webkit-clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
 }
 
 .right-trap{
@@ -189,7 +189,7 @@ section {
   width: 70%;
   min-width: 310px;
   margin: 0 auto;
-  padding: 5px;
+  padding: 15px 5px;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -290,5 +290,9 @@ section {
 
   .move-back{
     display: none;
+  }
+
+  .about{
+    transform: scale(.8)
   }
 }
