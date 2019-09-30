@@ -88,24 +88,184 @@ section {
   background: linear-gradient(177deg, black, #111, #222, #9AC1E0)
 }
 
-.flyer {
-  height: 100px;
-  width: 100px;
-  z-index: 10;
-  position: absolute;
-  border-radius: 5px;
-  display: grid;
-  place-items: center center;
-}
+
 
 #techArea {
   width: 205px;
   min-height: 415px;
   margin: 4em auto;
   position: relative;
+}
+
+.flyer {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  border-radius: 5px;
   display: grid;
   place-items: center center;
+  overflow: hidden;
+  background-color: white;
 }
+
+.flyer-img{
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: all, 1s;
+}
+
+.flyer:hover .flyer-img{
+  transform: rotateY(180deg) translateZ(-30px);
+  transition: all, 1s;
+}
+
+
+/* ------------------------------------------------------------ */
+
+/* #htmlFlyer{
+  top: 0;
+  left: 0;
+}
+
+#cssFlyer{
+  top: 0;
+  left: 105px;
+}
+
+#jsFlyer{
+  top: 105px;
+  left: 0;
+}
+
+#reactFlyer{
+  top: 105px;
+  left: 105px;
+}
+
+#nodeFlyer{
+  top: 210px;
+  left: 0;
+}
+
+#expressFlyer{
+  top: 210px;
+  left: 105px;
+}
+
+#mongoDBFlyer{
+  top: 315px;
+  left: 0;
+}
+
+#mySQLFlyer{
+  top: 315px;
+  left: 105px;
+} */
+
+#htmlFlyer{
+  animation-delay: 0s;
+  z-index: 5;
+}
+
+#cssFlyer{
+  animation-delay: 0s;
+  z-index: 5;
+}
+
+#jsFlyer{
+  animation-delay: 2.5s;
+  z-index: 4;
+
+}
+
+#reactFlyer{
+  animation-delay: 2.5s;
+  z-index: 4;
+
+}
+
+#nodeFlyer{
+  animation-delay: 5s;
+  z-index: 3;
+
+}
+
+#expressFlyer{
+  animation-delay: 5s;
+  z-index: 3;
+
+}
+
+#mongoDBFlyer{
+  animation-delay: 7.5s;
+  z-index: 2;
+
+}
+
+#mySQLFlyer{
+  animation-delay: 7.5s;
+  z-index: 2;
+
+}
+
+
+.left-animation{
+  animation-name: rollLeft;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: rollLeft;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.right-animation{
+  left: 105px;
+  animation-name: rollRight;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: rollRight;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes rollLeft{
+  0%, 100% {transform: translate(0, 0)}
+  25% {transform: translate(-105px, 0)}
+  50% {transform: translate(-105px, 315px)}
+  75% {transform: translate(0, 315px)}
+}
+
+@-webkit-keyframes rollLeft{
+  0%, 100% {transform: translate(0, 0)}
+  25% {transform: translate(-105px, 0)}
+  50% {transform: translate(-105px, 315px)}
+  75% {transform: translate(0, 315px)}
+}
+
+@keyframes rollRight{
+  0%, 100% {transform: translate(0, 0)}
+  25% {transform: translate(105px, 0)}
+  50% {transform: translate(105px, 315px)}
+  75% {transform: translate(0, 315px)}
+}
+
+@-webkit-keyframes rollRight{
+  0%, 100% {transform: translate(0, 0)}
+  25% {transform: translate(105px, 0)}
+  50% {transform: translate(105px, 315px)}
+  75% {transform: translate(0, 315px)}
+}
+
+/* ------------------------------------------------------------ */
 
 .move-back {
   border: 1px black solid;
@@ -130,7 +290,6 @@ section {
   outline: none;
 }
 
-/* Project Section*/
 
 #portfolio {
   background: url("../images/backgrounds/sky2.jpg");
@@ -283,5 +442,9 @@ section {
 
   .about{
     transform: scale(.8)
+  }
+
+  .flyer{
+    transform: scale(.90);
   }
 }

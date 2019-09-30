@@ -114,32 +114,32 @@ function Flyer(id, img, startX, startY) {
   }
 }
 
-const htmlFlyer = new Flyer("htmlFlyer", "/assets/images/HTML.jpg", 0, 0);
-const cssFlyer = new Flyer("cssFlyer", "/assets/images/CSS.png", 105, 0);
-const javascriptFlyer = new Flyer("jsflyer", "/assets/images/Javascript.png", 0, 105);
-const reactFlyer = new Flyer("reactFlyer", "/assets/images/React.png", 105, 105);
-const nodeFlyer = new Flyer("nodeFlyer", "/assets/images/Node.png", 0, 210);
-const expressFlyer = new Flyer("expressFlyer", "/assets/images/Express.png", 105, 210);
-const MongoDBFlyer = new Flyer("mongoDBFlyer", "/assets/images/MongoDB.png", 0, 315);
-const MySqlFlyer = new Flyer("MySQLFlyer", "/assets/images/MySql.png", 105, 315);
+// const htmlFlyer = new Flyer("htmlFlyer", "/assets/images/HTML.jpg", 0, 0);
+// const cssFlyer = new Flyer("cssFlyer", "/assets/images/CSS.png", 105, 0);
+// const javascriptFlyer = new Flyer("jsflyer", "/assets/images/Javascript.png", 0, 105);
+// const reactFlyer = new Flyer("reactFlyer", "/assets/images/React.png", 105, 105);
+// const nodeFlyer = new Flyer("nodeFlyer", "/assets/images/Node.png", 0, 210);
+// const expressFlyer = new Flyer("expressFlyer", "/assets/images/Express.png", 105, 210);
+// const MongoDBFlyer = new Flyer("mongoDBFlyer", "/assets/images/MongoDB.png", 0, 315);
+// const MySqlFlyer = new Flyer("MySQLFlyer", "/assets/images/MySql.png", 105, 315);
 
-const divs = [
-  htmlFlyer, 
-  cssFlyer, 
-  javascriptFlyer, 
-  reactFlyer,
-  nodeFlyer, 
-  expressFlyer,
-  MongoDBFlyer,
-  MySqlFlyer
-]
+// const divs = [
+//   htmlFlyer, 
+//   cssFlyer, 
+//   javascriptFlyer, 
+//   reactFlyer,
+//   nodeFlyer, 
+//   expressFlyer,
+//   MongoDBFlyer,
+//   MySqlFlyer
+// ]
 
-const moveBackBtn = document.getElementById("move-back");
-moveBackBtn.addEventListener("click", function() {
-  divs.forEach(div => div.moveBack())
-})
+// const moveBackBtn = document.getElementById("move-back");
+// moveBackBtn.addEventListener("click", function() {
+//   divs.forEach(div => div.moveBack())
+// })
 
-divs.forEach(div => div.makeDiv())
+// divs.forEach(div => div.makeDiv())
 
 // document.addEventListener("scroll", function() {
 //   console.log("scroll");
